@@ -1,0 +1,23 @@
+@media print {
+
+    .order-status{
+        width:33.33%;
+    }
+    .billing-to{
+        width:33.33%;
+    }
+    .shipping-to{
+        width:33.33%;
+    }
+    .payment-calculation-blank{
+        width:60%;
+    }
+    .payment-calculation{
+        width:40%;
+        background-color:rgba(81,82,114,0.46)
+    }
+
+    tbody tr td{
+        font-size:14px;
+    }
+}

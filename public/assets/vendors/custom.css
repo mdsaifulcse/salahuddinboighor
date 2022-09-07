@@ -1,0 +1,46 @@
+
+#kt_wrapper>.alert{
+    margin:10px;
+}
+label{
+    color: #009688;
+    font-size: 1rem !important;
+}
+
+.col-form-label{
+    font-size: 1.2rem !important;
+}
+.kt-svg-icon{
+    color:#e17315;
+}
+.form-footer{
+    background-color:rgb(141 142 149 / 8%);
+}
+.form-header{
+    background-color:#39d98040;
+}
+.form-control{
+    border:1px solid #b4b4b4;
+}
+.modal-footer{
+    display:block !important;
+}
+.mce-notification-inner,.mce-notification.mce-has-close, .mce-flow-layout-item.mce-last{
+    display:none !important;
+}
+
+.mce-panel{
+    background-color:#e4e8ff !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered .select2-selection__choice,.select2-container--default .select2-results__option{
+    color: #ffffff;
+    background: #777778;
+    border: 1px solid #9c27b0;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove{
+    color: #ffffff;
+}
+
+

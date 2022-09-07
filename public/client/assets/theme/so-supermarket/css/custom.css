@@ -1,0 +1,205 @@
+/*Add Css Custom Here*/
+.module.sohomepage-slider .so-homeslider img{
+	border-radius:0px !important;
+}
+.product-item-container{
+	border:1px solid #dbdadaa3;
+	margin: 0 0 10px 0 !important;
+	padding: 0 0 10px 0 !important;
+}
+.item:hover,.product-item-container:hover{
+	box-shadow: 0 0 4px #b6b6b6;
+}
+.products-list .product-layout .product-item-container .left-block .product-image-container{
+	/* max-height: 170px; */
+	min-height: 170px;
+}
+.top-rate-image-container{
+	max-height: 125px !important;
+	min-height: 125px !important;
+}
+
+/*====== Fix bugs Megamenu not showing icon font (26/1/2018) =====*/
+@media (min-width: 992px){
+	.menu-vertical .container-megamenu.vertical .vertical-wrapper ul.megamenu > li > a {  line-height: 24px; height: auto;}
+	.menu-vertical .container-megamenu.vertical .vertical-wrapper ul.megamenu > li > a i,
+	.menu-vertical .container-megamenu.vertical .vertical-wrapper ul.megamenu > li > a b {
+	    display: inline-block;
+	}
+	.menu-vertical .container-megamenu.vertical .vertical-wrapper ul.megamenu > li.with-sub-menu > a:before{display: none;}
+	.menu-vertical .container-megamenu.vertical .vertical-wrapper ul.megamenu > li > a img{position: static; transform: inherit;}
+
+}
+
+.typeheader-2 .login-w li{
+	font-size: 10px !important;
+}
+
+.shipping_methods_info label{
+	display:block;
+	font-size:14px;
+}
+a.active{
+	color:#FC0505 !important;
+}
+
+.custom-social-share li{
+	display:inline-block;
+}
+
+
+.social-media li a i, .social-media li button i {
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 25px;
+	color: #fff;
+}
+
+/*  ---------- Client area ---------- */
+
+
+/*.products-list .product-layout .product-item-container .left-block .product-image-container{*/
+	/*max-height: 200px;*/
+	/*overflow: hidden;*/
+/*}*/
+
+div.header-lined h1{
+	margin-top: 0;
+	margin-bottom: 15px;
+	padding: 6px 0;
+	border-bottom: 1px solid #ccc;
+	font-weight: 400;
+	color: #058;
+}
+
+.tiles {
+	margin: 0 15px 15px 15px;
+}
+
+.tiles .tile{
+	padding: 12px 20px;
+	background-color: #233d2b;
+	border-right: 1px solid #ccc;
+}
+
+.tile .icon {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 48px;
+	line-height: 1;
+	color: #ccc;
+}
+.tile .stat {
+	margin-top: 20px;
+	font-size: 40px;
+	line-height: 1;
+}
+.tile .title {
+	font-weight: 700;
+	color: #888;
+	text-transform: uppercase;
+	font-size: 11px;
+}
+.tiles .tile .highlight {
+	margin-top: 4px;
+	height: 2px;
+	border-radius: 2px;
+}
+
+.bg-color-blue {
+	background-color: #5bc0de;
+}
+.bg-color-green {
+	background-color: #5cb85c;
+}
+.bg-color-success {
+	background-color: #16d900;
+}
+.bg-color-gold {
+	background-color: #f0ad4e;
+}
+.bg-color-shipping
+{
+	background-color: #bbc2ff;
+}
+.bg-color-cancel {
+	background-color:red;
+}
+
+.bg-color-received {
+	background-color: #c0ffb9;
+}
+.form-default{
+	padding: 20px;
+	background-color: #f5f5f5;
+	border: 1px solid #f44336;
+	margin-bottom:30px;
+}
+
+.billing-head{
+	padding:30px 0px;
+}
+.billing-to{
+	text-align:right;
+}
+.shipping-to{
+	text-align:right;
+}
+table tbody tr td{
+	text-align: center;
+}
+
+.home-category-product{
+	border: 1px solid #d5d1d1;
+}
+.category-1-of-5{
+	/*height: 340px;*/
+	/* max-width: 510px; */
+	/*margin: auto;*/
+	/* overflow: auto; */
+	border: 1px solid #d5d1d1;
+}
+
+.category-1-of-5>.products-list ,.category-4-of-5>.products-list,
+.category-1-of-5>.products-list .product-grid .product-item-container,
+.category-4-of-5>.products-list .product-grid .product-item-container{
+	margin-bottom: 0px!important;
+}
+
+
+.category-1-of-5 a img{
+	max-height: 328px;
+	margin: auto;
+}
+.category-4-of-5-inner{
+	padding: 1px;
+	max-height: 216px;
+	/*border: 1px solid #d5d1d1;*/
+}
+.category-4-of-5 a img{
+	max-height:117px;
+	margin: auto;
+}
+
+.slider-brands .item {
+	text-align: center !important;
+	opacity: 1 !important;
+	margin: 0 3px;
+}
+.panel-heading{
+	background-color:#233D2B !important;
+	color: #FFFFFF !important;
+}
+.payment-info .d-flex{
+	display:flex;
+	margin-top:2.5rem !important;
+}
+.payment-info .d-flex>p{
+	margin-left:10px
+}
+body svg{
+	display:block !important;
+}
