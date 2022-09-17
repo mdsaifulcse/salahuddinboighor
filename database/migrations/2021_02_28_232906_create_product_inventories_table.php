@@ -43,7 +43,7 @@ class CreateProductInventoriesTable extends Migration
     {
         Schema::table('product_inventories',function (Blueprint $table){
             $table->dropForeign(['product_id']);
-            $table->dropForeign(['product_purchase_id']);
+            //$table->dropForeign(['product_purchase_id']);
 
             $table->dropForeign(['created_by']);
             $table->dropForeign(['updated_by']);

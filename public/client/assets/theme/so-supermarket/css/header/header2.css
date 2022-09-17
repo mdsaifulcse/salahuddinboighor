@@ -341,7 +341,7 @@
     font-size: 14px; }
   .typeheader-2 .header-middle {
     clear: both;
-    padding: 0px 0 0px 0; margin-top:40px;}
+    padding: 0px 0 0px 0; margin-top:25px;}
   .typeheader-2 .header-bottom {
     clear: both;
     background-color: #280c2d; }
@@ -509,7 +509,7 @@
   .typeheader-2 .container-megamenu.vertical #menuHeading .megamenuToogle-wrapper {
     background-color: transparent; }
   .typeheader-2 .container-megamenu.vertical #menuHeading .megamenuToogle-pattern .container {
-    color: #fff;
+    color: #280c2d;
     /*height: 60px;*/
     width: 100% !important;
     position: absolute;

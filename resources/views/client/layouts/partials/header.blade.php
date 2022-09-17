@@ -284,7 +284,7 @@
                 <div class="navbar-logo col-lg-2 col-md-3 col-sm-12 col-xs-12">
                     <div class="logo">
                         <a href="{{URL::to('/')}}">
-                            <img class="lazyload"  src="{{asset($setting->logo)}}" data-src="{{asset($setting->logo)}}" title="{{$setting->company_name}} " alt="{{$setting->company_name}}" style="width: 120px;margin-top: -40px" /></a>
+                            <img class="lazyload"  src="{{asset($setting->logo)}}" data-src="{{asset($setting->logo)}}" title="{{$setting->company_name}} " alt="{{$setting->company_name}}" style="width: 150px;margin-top: 0px" /></a>
                     </div>
                 </div>
 

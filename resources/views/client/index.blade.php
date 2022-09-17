@@ -19,7 +19,7 @@
 @section('content')
     <div id="content" class="">
         <div class="so-page-builder">
-            <div style="background-color: #f44336;margin-bottom:15px;">
+            <div style="margin-bottom:15px;">
                 <div class="container page-builder-ltr">
                     <div class="row row_gw4 ">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_6s4m  slideshow-full">
@@ -75,40 +75,41 @@
             </div>
             <div class="container page-builder-ltr">
                 <div class="row row_7qar  row-style ">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_vnrl  col-style">
-                        <!--[if gt IE 9]><!-->
-                        <div class="so-categories module theme3 custom-slidercates" style="margin-top:30px;marign-bottom:15px;">
-                            <h3 class="modtitle text-center"><span>{{__('frontend.Shop by Categories')}}</span></h3>
-                            <div class="form-group"> <a class="viewall" href="{{URL::to('/book/categories')}}">View All</a></div>
-                            <div class="container">
-                                <div class="row">
-                                    <?php $i=0;?>
-                                    @forelse($categories->chunk(7) as $j=>$categorie)
-                                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 ">
-                                            <div class="card">
-                                                <div class="card-horizontal">
-                                                    <div class="img-square-wrapper hidden-xs">
-                                                        @if(isset($categories[$i]))
-                                                            <a href="{{URL::to('/book/category/'.$categories[$i]->id.'?ref='.$categories[$i]->category_name)}}"><img class="img-responsive" src="{{asset($categories[$i]->icon_photo)}}" alt="{{$categories[$i]->category_name_bn}}"></a>
-                                                        @else
-                                                            <img class="img-responsive" src="http://via.placeholder.com/300x180" alt="Card image cap">
-                                                        @endif
-                                                    </div>
-                                                    <div class="card-body">
-                                                        @foreach($categorie as $k=>$value)
-                                                            <a href="{{URL::to('/book/category/'.$value->id.'?ref='.$value->category_name)}}" class="card-text">{{$value->category_name_bn}}</a>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php $i+=7;?>
-                                    @empty
-                                    @endforelse
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- end Shop by Categories row -->
+                    {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_vnrl  col-style">--}}
+                        {{--<!--[if gt IE 9]><!-->--}}
+                        {{--<div class="so-categories module theme3 custom-slidercates" style="margin-top:30px;marign-bottom:15px;">--}}
+                            {{--<h3 class="modtitle text-center"><span>{{__('frontend.Shop by Categories')}}</span></h3>--}}
+                            {{--<div class="form-group"> <a class="viewall" href="{{URL::to('/book/categories')}}">View All</a></div>--}}
+                            {{--<div class="container">--}}
+                                {{--<div class="row">--}}
+                                    {{--<?php $i=0;?>--}}
+                                    {{--@forelse($categories->chunk(7) as $j=>$categorie)--}}
+                                        {{--<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 ">--}}
+                                            {{--<div class="card">--}}
+                                                {{--<div class="card-horizontal">--}}
+                                                    {{--<div class="img-square-wrapper hidden-xs">--}}
+                                                        {{--@if(isset($categories[$i]))--}}
+                                                            {{--<a href="{{URL::to('/book/category/'.$categories[$i]->id.'?ref='.$categories[$i]->category_name)}}"><img class="img-responsive" src="{{asset($categories[$i]->icon_photo)}}" alt="{{$categories[$i]->category_name_bn}}"></a>--}}
+                                                        {{--@else--}}
+                                                            {{--<img class="img-responsive" src="http://via.placeholder.com/300x180" alt="Card image cap">--}}
+                                                        {{--@endif--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="card-body">--}}
+                                                        {{--@foreach($categorie as $k=>$value)--}}
+                                                            {{--<a href="{{URL::to('/book/category/'.$value->id.'?ref='.$value->category_name)}}" class="card-text">{{$value->category_name_bn}}</a>--}}
+                                                        {{--@endforeach--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<?php $i+=7;?>--}}
+                                    {{--@empty--}}
+                                    {{--@endforelse--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div><!-- end Shop by Categories row -->--}}
+
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_4xg8  col-style">
                         <div id="featureBook" class=" so-category-slider container-slider module so-category-slider-ltr cate-slider1">
                             <h4 class="modtitle">{{__('frontend.Feature Product')}}</h4>
@@ -245,52 +246,53 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end row -->
-                </div>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_pfg8  col-style">
-                <div class="block-policy1">
-                    <ul>
-                        <li class="item-3">
-                            <a href="javascript:;" class="item-inner">
-                                <i class="fa fa-truck fa-2x"></i>
-                                <div class="content">
-                                    <b>ডেলিভারি চার্জ সম্পূর্ণ ফ্রি</b>
-                                    <span>২৪ ঘন্টার মধ্যে হোম ডেলিভারি</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="item-4">
-                            <a href="javascript:;" class="item-inner">
-                                <i class="fa fa-gift fa-2x"></i>
-                                <div class="content">
-                                    <b>প্যাকেজ ক্রয়-বিক্রয়ে বিশেষ সুযোগ</b>
-                                    <span>প্যাকেজে বই ক্রয়-বিক্রয়ে রয়েছে আকর্ষণীয় গ্রিফ্ট</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="item-1">
-                            <a href="javascript:;" class="item-inner">
-                                <i class="fa fa-book fa-2x"></i>
-                                <div class="content">
-                                    <b>সেরা পাবলিকেশনস</b>
-                                    <span>প্রায় ৩ হাজার বই এর এক বিশেষ সমাহার</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="item-2">
-                            <a href="javascript:;" class="item-inner">
-                                <i class="fa fa-cart-plus fa-2x"></i>
-                                <div class="content">
-                                    <b>বাংলাদেশের যেকোন প্রান্ত থেকে অর্ডার করুন</b>
-                                    <span>রয়েছে সর্বোচ্চ ৫০% প্রর্যন্ত ডিসকাউন্ট</span>
-                                </div>
-                            </a>
-                        </li>
+                    </div><!-- end row --><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_pfg8  col-style">
+                        <div class="block-policy1">
+                            <ul>
+                                <li class="item-3">
+                                    <a href="javascript:;" class="item-inner">
+                                        <i class="fa fa-truck fa-2x"></i>
+                                        <div class="content">
+                                            <b>ডেলিভারি চার্জ সম্পূর্ণ ফ্রি</b>
+                                            <span>২৪ ঘন্টার মধ্যে হোম ডেলিভারি</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="item-4">
+                                    <a href="javascript:;" class="item-inner">
+                                        <i class="fa fa-gift fa-2x"></i>
+                                        <div class="content">
+                                            <b>প্যাকেজ ক্রয়-বিক্রয়ে বিশেষ সুযোগ</b>
+                                            <span>প্যাকেজে বই ক্রয়-বিক্রয়ে রয়েছে আকর্ষণীয় গ্রিফ্ট</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="item-1">
+                                    <a href="javascript:;" class="item-inner">
+                                        <i class="fa fa-book fa-2x"></i>
+                                        <div class="content">
+                                            <b>সেরা পাবলিকেশনস</b>
+                                            <span>প্রায় ৩ হাজার বই এর এক বিশেষ সমাহার</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="item-2">
+                                    <a href="javascript:;" class="item-inner">
+                                        <i class="fa fa-cart-plus fa-2x"></i>
+                                        <div class="content">
+                                            <b>বাংলাদেশের যেকোন প্রান্ত থেকে অর্ডার করুন</b>
+                                            <span>রয়েছে সর্বোচ্চ ৫০% প্রর্যন্ত ডিসকাউন্ট</span>
+                                        </div>
+                                    </a>
+                                </li>
 
-                    </ul>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
             <!--End Feature Container -->
             <!--Start Bongobondho, bangladesh Independent-->
             <div class="container page-builder-ltr">

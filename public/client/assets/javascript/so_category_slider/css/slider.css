@@ -1830,11 +1830,11 @@
     display: block;
     width: 100%;
     position: relative;
-    background-color: rgb(246 246 246);
+    background-color: rgb(253 251 253);
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: rgb(0 0 0 / 40%) 0px 1px 3px;
+    box-shadow: rgb(0 0 0 / 21%) 0px 1px 1px;
 }
 
 /*image_category_parent*/

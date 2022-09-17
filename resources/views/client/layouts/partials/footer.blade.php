@@ -8,7 +8,7 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col_4202  col-style">
                         <div class="infos-footer">
                             <a href="layout2.html#">
-                                <img src="{{asset($setting->logo)}}"  data-src="{{asset($setting->logo)}}" title="{{$setting->company_name}} " alt="{{$setting->company_name}}" style="width: 120px;margin-left:25%;"></a>
+                                <img src="{{asset($setting->logo)}}"  data-src="{{asset($setting->logo)}}" title="{{$setting->company_name}} " alt="{{$setting->company_name}}" style="width: 150px;margin-left:15%;"></a>
                             <ul>
                                 <li class="adres">
                                     <?php echo nl2br($setting->address1);?>

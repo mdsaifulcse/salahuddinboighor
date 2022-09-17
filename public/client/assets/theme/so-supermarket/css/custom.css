@@ -8,7 +8,7 @@
 	padding: 0 0 10px 0 !important;
 }
 .item:hover,.product-item-container:hover{
-	box-shadow: 0 0 4px #b6b6b6;
+	box-shadow: 0 0 4px #2f0536;
 }
 .products-list .product-layout .product-item-container .left-block .product-image-container{
 	/* max-height: 170px; */

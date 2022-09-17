@@ -259,7 +259,7 @@ class ProductController extends Controller
         ProductInventory::create(
             [
             'product_id'=>$productId,
-            'product_purchase_id'=>$request->product_purchase_id??null,
+            //'product_purchase_id'=>$request->product_purchase_id??null,
             'new_add_qty'=>$request->new_add_qty??0,
             'qty'=>$request->qty??0,
             'cost_price'=>$request->cost_price??0,
