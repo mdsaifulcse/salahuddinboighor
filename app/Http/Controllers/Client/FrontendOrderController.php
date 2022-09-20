@@ -31,8 +31,7 @@ class FrontendOrderController extends Controller
      */
     public function create(Request $request)
     {
-        $allData=Order::where(['user_id'=>auth()->user()->id])->orderBy('created_at', 'DESC')
-            ->orderBy('id','desc');
+        $allData=Order::where(['user_id'=>auth()->user()->id])->latest();
 
 
         if ($request->has('today') && $request->today==1)

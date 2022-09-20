@@ -341,7 +341,7 @@
     font-size: 14px; }
   .typeheader-2 .header-middle {
     clear: both;
-    padding: 0px 0 0px 0; margin-top:25px;}
+    padding: 0px 0 0px 0; margin-top:25px;margin-bottom:12px;}
   .typeheader-2 .header-bottom {
     clear: both;
     background-color: #280c2d; }
@@ -509,7 +509,7 @@
   .typeheader-2 .container-megamenu.vertical #menuHeading .megamenuToogle-wrapper {
     background-color: transparent; }
   .typeheader-2 .container-megamenu.vertical #menuHeading .megamenuToogle-pattern .container {
-    color: #280c2d;
+    color: #690c7a;
     /*height: 60px;*/
     width: 100% !important;
     position: absolute;
@@ -518,15 +518,15 @@
     /*padding-top: 10px !important;*/
     text-shadow: none; }
     .typeheader-2 .container-megamenu.vertical #menuHeading .megamenuToogle-pattern .container > div span {
-      background-color: #fff; }
+      background-color: #690c7a; }
     .typeheader-2 .container-megamenu.vertical #menuHeading .megamenuToogle-pattern .container:after {
       font-family: 'FontAwesome';
       content: "\f107";
       font-size: 16px;
-      color: #fff;
+      color: #690c7a;
       position: absolute;
       right: 20px;
-      top: 10px;
+      top: 0px;
       font-weight: 400; }
   @media (min-width: 992px) {
     .typeheader-2 .container-megamenu.vertical .vertical-wrapper {

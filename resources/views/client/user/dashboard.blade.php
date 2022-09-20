@@ -97,8 +97,7 @@
                             <thead>
                             <tr>
                                 <td class="text-center">Sl</td>
-                                <td class="text-center">Orde Id</td>
-                                <td class="text-center">No. of Products</td>
+                                <td class="text-center">Order Id</td>
                                 <td class="text-center">Total.{{$currency}}</td>
                                 <td class="text-center">Order Status</td>
                                 <td class="text-center">Payment Status</td>
@@ -111,7 +110,7 @@
                             <tr>
                                 <td class="text-center">{{$key+1}}</td>
                                 <td class="text-center">{{$recentOrder->order_id}}</td>
-                                <td class="text-center">{{count($recentOrder->cart_items)}}</td>
+                                {{--<td class="text-center">{{count($recentOrder->cart_items)}}</td>--}}
                                 <td class="text-center">{{$currency  }}{{$recentOrder->total}}</td>
                                 <td class="text-center">
                                     @if($recentOrder->order_status==\App\Models\Order::COMPLETE)

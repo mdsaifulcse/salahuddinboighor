@@ -267,7 +267,7 @@
                 $('.products-category .product-layout').attr('class', 'product-layout product-table col-xs-12');
                 localStorage.setItem('listview', 'table');
             })
-            if(localStorage.getItem('listview')== null) localStorage.setItem('listview', 'grid-3');
+            if(localStorage.getItem('listview')== null) localStorage.setItem('listview', 'grid-4');
 
             if (localStorage.getItem('listview') == 'table') {
                 $('#table-view').trigger('click');

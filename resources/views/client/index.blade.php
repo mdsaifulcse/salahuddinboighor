@@ -246,49 +246,50 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end row --><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_pfg8  col-style">
-                        <div class="block-policy1">
-                            <ul>
-                                <li class="item-3">
-                                    <a href="javascript:;" class="item-inner">
-                                        <i class="fa fa-truck fa-2x"></i>
-                                        <div class="content">
-                                            <b>ডেলিভারি চার্জ সম্পূর্ণ ফ্রি</b>
-                                            <span>২৪ ঘন্টার মধ্যে হোম ডেলিভারি</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="item-4">
-                                    <a href="javascript:;" class="item-inner">
-                                        <i class="fa fa-gift fa-2x"></i>
-                                        <div class="content">
-                                            <b>প্যাকেজ ক্রয়-বিক্রয়ে বিশেষ সুযোগ</b>
-                                            <span>প্যাকেজে বই ক্রয়-বিক্রয়ে রয়েছে আকর্ষণীয় গ্রিফ্ট</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="item-1">
-                                    <a href="javascript:;" class="item-inner">
-                                        <i class="fa fa-book fa-2x"></i>
-                                        <div class="content">
-                                            <b>সেরা পাবলিকেশনস</b>
-                                            <span>প্রায় ৩ হাজার বই এর এক বিশেষ সমাহার</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="item-2">
-                                    <a href="javascript:;" class="item-inner">
-                                        <i class="fa fa-cart-plus fa-2x"></i>
-                                        <div class="content">
-                                            <b>বাংলাদেশের যেকোন প্রান্ত থেকে অর্ডার করুন</b>
-                                            <span>রয়েছে সর্বোচ্চ ৫০% প্রর্যন্ত ডিসকাউন্ট</span>
-                                        </div>
-                                    </a>
-                                </li>
+                    </div><!-- end row -->
+                    {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_pfg8  col-style" style="display:none;">--}}
+                        {{--<div class="block-policy1">--}}
+                            {{--<ul>--}}
+                                {{--<li class="item-3">--}}
+                                    {{--<a href="javascript:;" class="item-inner">--}}
+                                        {{--<i class="fa fa-truck fa-2x"></i>--}}
+                                        {{--<div class="content">--}}
+                                            {{--<b>ডেলিভারি চার্জ সম্পূর্ণ ফ্রি</b>--}}
+                                            {{--<span>২৪ ঘন্টার মধ্যে হোম ডেলিভারি</span>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li class="item-4">--}}
+                                    {{--<a href="javascript:;" class="item-inner">--}}
+                                        {{--<i class="fa fa-gift fa-2x"></i>--}}
+                                        {{--<div class="content">--}}
+                                            {{--<b>প্যাকেজ ক্রয়-বিক্রয়ে বিশেষ সুযোগ</b>--}}
+                                            {{--<span>প্যাকেজে বই ক্রয়-বিক্রয়ে রয়েছে আকর্ষণীয় গ্রিফ্ট</span>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li class="item-1">--}}
+                                    {{--<a href="javascript:;" class="item-inner">--}}
+                                        {{--<i class="fa fa-book fa-2x"></i>--}}
+                                        {{--<div class="content">--}}
+                                            {{--<b>সেরা পাবলিকেশনস</b>--}}
+                                            {{--<span>প্রায় ৩ হাজার বই এর এক বিশেষ সমাহার</span>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li class="item-2">--}}
+                                    {{--<a href="javascript:;" class="item-inner">--}}
+                                        {{--<i class="fa fa-cart-plus fa-2x"></i>--}}
+                                        {{--<div class="content">--}}
+                                            {{--<b>বাংলাদেশের যেকোন প্রান্ত থেকে অর্ডার করুন</b>--}}
+                                            {{--<span>রয়েছে সর্বোচ্চ ৫০% প্রর্যন্ত ডিসকাউন্ট</span>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
 
-                            </ul>
-                        </div>
-                    </div>
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
                 </div>
             </div>

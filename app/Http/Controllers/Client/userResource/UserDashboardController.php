@@ -35,6 +35,7 @@ class UserDashboardController extends Controller
         foreach ($recentOrders as $key=>$recentOrder){
             $recentOrders[$key]['cart_items']=unserialize($recentOrder->cart_items);
         }
+
         $setting=DataLoad::setting();
         return view('client.user.dashboard',compact('totalOrders','completeOrders','pendingOrders','receivedOrders','shippingOrders','cancelOrders','recentOrders','setting'));
     }

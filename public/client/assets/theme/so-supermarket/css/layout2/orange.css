@@ -4319,7 +4319,7 @@ body.layout-3 #content .so-page-builder .container {
 /*========= page builder =============*/
 #content .so-page-builder .container {
   overflow: visible;
-  padding: 0px;
+  /*padding: 0px;*/
 }
 /*================ LINK & COLUMN ===================*/
 .textColor {
@@ -7865,28 +7865,27 @@ header ul.top-link > li.language .btn-link img {
   color: #01a754; }
 
 .container-megamenu.vertical #menuHeading .megamenuToogle-pattern .container {
-  background-color: #e5e2e2; }
+  background-color: #ffffff; }
 /*======================================================*/
 header ul.top-link > li .btn-group .btn-link:hover, header ul.top-link > li > a:hover {
   color: #01a754; }
 
 .typeheader-1 #sosearchpro .search button:hover {
   background-color: #cd4900; }
-
 .typeheader-1 .shopping_cart .btn-shopping-cart .top_cart .icon-c i {
-  color: #01a754; }
+  color: #690c7a; }
 
 .typeheader-1 .welcome-msg span {
-  color: #01a754; }
+  color: #690c7a; }
 /*.typeheader-1 .wishlist-comp li a.top-link-wishlist:hover:before,
  .typeheader-1 .wishlist-comp li a:hover i{
  color: $linkColor;
  }*/
 .common-home .typeheader-2 .container-megamenu.horizontal ul.megamenu > li.home > a {
-  color: #01a754; }
+  color: #ffffffbf; }
 
 .typeheader-2 .container-megamenu.horizontal ul.megamenu > li:hover > a, .typeheader-2 .container-megamenu.horizontal ul.megamenu > li.active > a, .typeheader-2 .container-megamenu.horizontal ul.megamenu > li.menu_active > a {
-  color: #01a754; }
+  color: #ffffff; }
 
 .typeheader-2 #sosearchpro .search button {
   background-color: #000000; }
