@@ -15,7 +15,7 @@
                                             <div class="megamenuToogle-pattern">
                                                 <div class="container">
                                                     <div><span></span><span></span><span></span></div>
-                                                    All Departments
+                                                    {{__('frontend.All Departments')}}
                                                 </div>
                                             </div>
                                         </div>
@@ -23,7 +23,7 @@
                                     <div class="navbar-header">
                                         <button type="button" id="show-verticalmenu" data-toggle="collapse"  class="navbar-toggle">
                                             <i class="fa fa-bars"></i>
-                                            <span> All Departments</span>
+                                            <span>  {{__('frontend.All Departments')}}</span>
                                         </button>
                                     </div>
 
@@ -173,7 +173,7 @@
                                                         <a href="javascript:void(0)" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();"  class="clearfix">
                                                             {{--<i class="fa fa-sign-out"></i>--}}
-                                                            Sign Out &nbsp; |</a>
+                                                            {{__('frontend.Sign Out')}} &nbsp; |</a>
                                                     </li>
 
                                                     <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
@@ -183,11 +183,11 @@
 
                                                     <li class="item-special pull-right"> <a href="{{URL::to('/register.html')}}"  class="clearfix">
                                                             {{--<i class="fa fa-user"></i>--}}
-                                                            Register</a></li>
+                                                            {{__('frontend.Register')}}</a></li>
 
                                                     <li class="item-special pull-right"><a href="#" data-target="#so_sociallogin" data-toggle="modal"  class="clearfix">
                                                             {{--<i class="fa fa-sign-in"></i>--}}
-                                                            Login&nbsp; |</a></li>
+                                                            {{__('frontend.Login')}}&nbsp; |</a></li>
                                                 @endif
                                             </ul>
                                         </div>
@@ -299,7 +299,7 @@
 
                                     <div class="select_category filter_type  icon-select hidden-sm hidden-xs">
                                         <select class="no-border" name="category_id">
-                                            <option value="">All Categories </option>
+                                            <option value="">{{__('frontend.All Departments')}} </option>
                                             @forelse($categories as $key=>$categoryData)
                                                 <option value="{{$categoryData->id}}">{{$categoryData->category_name_bn}} </option>
                                                 @empty
@@ -307,9 +307,9 @@
                                         </select>
                                     </div>
 
-                                    <input class="autosearch-input form-control" type="search" value="{{old('search',isset($request)?$request->search:'')}}" autocomplete="off" placeholder="Search here..." name="search">
+                                    <input class="autosearch-input form-control" type="search" value="{{old('search',isset($request)?$request->search:'')}}" autocomplete="off" placeholder="{{__('frontend.Search here')}}..." name="search">
 
-                                    <button type="submit" class="button-search btn btn-default btn-lg" name="submit_search"><i class="fa fa-search"></i><span>Search</span></button>
+                                    <button type="submit" class="button-search btn btn-default btn-lg" name="submit_search"><i class="fa fa-search"></i><span>{{__('frontend.Search')}}</span></button>
                                 </div>
                                 <input type="hidden" name="route" value="product/search"/>
                             </form>
@@ -376,7 +376,7 @@
 										  </span>
                                     <div class="shopcart-inner">
                                         <p class="text-shopping-cart">
-                                            My cart
+                                            {{__('frontend.My cart')}}
                                         </p>
 
 
@@ -399,7 +399,7 @@
 										  </span>
                                         <div class="shopcart-inner">
                                             <p class="text-shopping-cart">
-                                                My cart
+                                                {{__('frontend.My cart')}}
                                             </p>
 
 
@@ -414,7 +414,7 @@
                                 </a>
                                     <ul class="dropdown-menu pull-right shoppingcart-box">
                                         <li>
-                                            <p class="text-center empty">Your shopping cart is empty!</p>
+                                            <p class="text-center empty">{{__('frontend.Your shopping cart is empty')}}!</p>
                                         </li>
                                     </ul>
                                 @endif
@@ -428,7 +428,7 @@
 
 
                             <a href="javascript:void(0)" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();"> <i class="fa fa-sign-out"></i> Sign Out</a>
+                                    document.getElementById('logout-form').submit();"> <i class="fa fa-sign-out"></i>{{__('frontend.Sign Out')}} </a>
 
                             <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
                                 @csrf
@@ -436,12 +436,12 @@
 
 
                         </li>
-                        @else
-                            <li><a href="{{URL::to('/account/account')}}"><span>My Account</span></a></li>
+                        @else{{__('frontend.My Account')}}
+                            <li><a href="{{URL::to('/account/account')}}"><span>{{__('frontend.My Account')}}</span></a></li>
                             <li class="logout">
                                 <a href="javascript:void(0)"> <i class="fa fa-sign-in"></i> </a>
 
-                                <a href="#" data-target="#so_sociallogin" data-toggle="modal" >Login</a>/<a href="{{URL::to('/register.html')}}">Sign Up</a>
+                                <a href="#" data-target="#so_sociallogin" data-toggle="modal" >{{__('frontend.Login')}}</a>/<a href="{{URL::to('/register.html')}}">{{__('frontend.Register')}}</a>
 
 
                             </li>

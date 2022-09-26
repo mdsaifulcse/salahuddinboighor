@@ -1,16 +1,27 @@
 <?php
 
 return [
+
+    'Cash On Delivery'=>'ক্যাশ অন ডেলিভারি',
+    '7 days happy return'=>'৭ দিন শুভ প্রত্যাবর্তন',
+    'Delivery Charge Tk. 50(Online order)'=>'ডেলিভারি চার্জ টাকা 50 (অনলাইন অর্ডার)',
+    'Purchase & Earn'=>'ক্রয় এবং উপার্জন',
+    'Search'=>'অনুসন্ধান',
+    'Search here'=>'এখানে অনুসন্ধান করুন',
+    'All Departments'=>'সকল বিভাগ',
     'Login'=>'লগইন',
     'Register'=>'রেজিস্টার',
+    'View All'=>'সব দেখুন',
     'Book Title'=>'Book Title',
     'Book Title Bn'=>'বইয়ের শিরোনাম',
     'Category Name'=>'Category',
     'Category Name Bn'=>'বিভাগ/শ্রেণী',
     'Brand'=>'ব্র্যান্ড',
     'Take a look'=>'একটু পড়ে দেখুন',
+    'Your shopping cart is empty'=>'আপনার শপিং কার্ট খালি',
     'Add to Cart'=>'কার্টে যোগ করুন',
     'Home'=>'হোম',
+    'My cart'=>'আমার কার্ট',
     'My Account'=>'আমার অ্যাকাউন্ট',
     'Author'=>'লেখক',
     'Book'=>'বই',
@@ -55,6 +66,16 @@ return [
     'Customer reviews'=>'কাস্টমারদের পর্যালোচনা',
     'Some books that may be added to your reading list'=>'আপনার পড়ার তালিকায় যোগ হতে পারে এমন কিছু বই',
     'New books that you want to buy'=>'নতুন যে বইগুলো আপনি কিনতে চাইবেন',
+    'Open time'=>'খোলা সময়',
+    'INFORMATION'=>'তথ্য',
+    'About Us'=>'আমাদের সম্পর্কে',
+    'Contact Us'=>'যোগাযোগ করুন',
+    'Privacy Policy'=>'গোপনীয়তা নীতি',
+    'SIGN UP FOR NEWSLETTER'=>'নিউজলেটারের জন্য সাইন আপ করুন',
+    'We’ll never share your email address with a third-party.'=>'আমরা কখনই আপনার ইমেল ঠিকানা তৃতীয় পক্ষের সাথে শেয়ার করব না।',
+    'Your email address'=>'আপনার ইমেইল ঠিকানা',
+    'Subscribe'=>'সাবস্ক্রাইব',
+    'All Rights Reserved. Designed by'=>'সর্বস্বত্ব সংরক্ষিত. ডিজাইন করেছেন',
 ];
 
 

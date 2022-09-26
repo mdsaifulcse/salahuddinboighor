@@ -36,7 +36,7 @@
         <div class="kt-subheader  kt-grid__item" id="kt_subheader">
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
-                    <h3 class="kt-subheader__title"> Admin Dashboard</h3>
+                    <h3 class="kt-subheader__title"> {{$setting->company_name}} - Admin Dashboard</h3>
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
                     {{--<span class="kt-subheader__desc">#XRS-45670</span>--}}
                     {{--<a href="#" class="btn btn-label-warning btn-bold btn-sm btn-icon-h kt-margin-l-10">--}}

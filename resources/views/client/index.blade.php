@@ -33,7 +33,7 @@
                                                     @forelse($sliders as $slider)
                                                         <div class="item">
                                                             <a href="javascript:;" title="{{$slider->caption}}" target="_self">
-                                                                <img class="lazyload"   src="" data-src="{{asset($slider->image)}}"  alt="slide 1" />
+                                                                <img class="lazyload"   src="" data-src="{{asset($slider->image)}}"  alt="{{$slider->caption}}" />
                                                             </a>
                                                             <div class="sohomeslider-description"> </div>
                                                         </div>
@@ -54,25 +54,6 @@
             </div>
 
 
-            <div id="register-login-profile">
-                <div class="container">
-                    <div class="register-login">
-                        <div class="row">
-                            <!--top Biggapon-->
-                            @forelse($biggapons->where('place',\App\Models\Biggapon::TOP)->where('show_on_page',\App\Models\Biggapon::HOME_PAGE)->take(1) as $i=>$topBiggapon)
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_llqj  col-style">
-                                    <div class="banners bannersb">
-                                        <div class="banner">
-                                            <a href="{{URL::to($topBiggapon->target_url)}}"><img src="{{asset($topBiggapon->image)}}" alt="image"></a>
-                                        </div>
-                                    </div>
-                                </div><!--end row-->
-                            @empty
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="container page-builder-ltr">
                 <div class="row row_7qar  row-style ">
                     {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_vnrl  col-style">--}}
@@ -115,7 +96,7 @@
                             <h4 class="modtitle">{{__('frontend.Feature Product')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
-                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">View All</a></li></ul></div>
+                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
                                 </div>
                                 <div class="categoryslider-content hide-featured preset01-6 preset02-4 preset03-3 preset04-2 preset05-1">
                                     <div class="loading-placeholder"></div>
@@ -140,7 +121,7 @@
                                                                 </a>
                                                             </div>
                                                             @if($discountPercent>0)
-                                                                <span class="label label-sale">- {{$discountPercent}}%</span>
+                                                                <span class="label label-sale">- {{MyHelper::bn_number($discountPercent)}}%</span>
                                                             @endif
                                                         </div>
                                                         <div class="right-block">
@@ -151,7 +132,7 @@
                                                                 <input class="form-control" type="hidden" name="qty" value="1">
                                                                 <input type="hidden" name="product_id" value="{{$featureProduct->id}}">
 
-                                                                <button class="addToCart" type="submit" title="Add to Cart"><span>Add to Cart</span></button>
+                                                                <button class="addToCart" type="submit" title="{{__('frontend.Add to Cart')}}"><span>{{__('frontend.Add to Cart')}}</span></button>
 
                                                                 <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$featureProduct->name}}"
                                                                         onclick='event.preventDefault();
@@ -207,10 +188,10 @@
                                                             </div>
                                                             <div class="price">
                                                                 @if($promotionSalePrice>0)
-                                                                    <span class="price-new">{{$setting->currency}} {{$promotionSalePrice}}</span>
-                                                                    <span class="price-old">{{$setting->currency}} {{$featureProduct->productStock->sale_price}} </span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</span>
+                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($featureProduct->productStock->sale_price)}} </span>
                                                                 @else
-                                                                    <span class="price-new">{{$setting->currency}} {{$featureProduct->productStock->sale_price}}</span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($featureProduct->productStock->sale_price)}}</span>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -247,6 +228,26 @@
                             </div>
                         </div>
                     </div><!-- end row -->
+
+                    <div id="register-login-profile">
+                        <div class="container">
+                            <div class="register-login">
+                                <div class="row">
+                                    <!--top Biggapon-->
+                                    @forelse($biggapons->where('place',\App\Models\Biggapon::TOP)->where('show_on_page',\App\Models\Biggapon::HOME_PAGE)->take(1) as $i=>$topBiggapon)
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_llqj  col-style">
+                                            <div class="banners bannersb">
+                                                <div class="banner">
+                                                    <a href="{{URL::to($topBiggapon->target_url)}}"><img src="{{asset($topBiggapon->image)}}" alt="image"></a>
+                                                </div>
+                                            </div>
+                                        </div><!--end row-->
+                                    @empty
+                                    @endforelse
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_pfg8  col-style" style="display:none;">--}}
                         {{--<div class="block-policy1">--}}
                             {{--<ul>--}}
@@ -303,7 +304,7 @@
                             <h4 class="modtitle">{{__('frontend.Bangabandhu Banglades Independent')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
-                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">View All</a></li></ul></div>
+                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
                                 </div>
                                 <div class="categoryslider-content hide-featured preset01-6 preset02-4 preset03-3 preset04-2 preset05-1">
                                     <div class="loading-placeholder"></div>
@@ -329,7 +330,7 @@
                                                                 </a>
                                                             </div>
                                                             @if($discountPercent>0)
-                                                                <span class="label label-sale">- {{$discountPercent}}%</span>
+                                                                <span class="label label-sale">- {{MyHelper::bn_number($discountPercent)}}%</span>
                                                             @endif
                                                         </div>
 
@@ -341,7 +342,7 @@
                                                                 <input class="form-control" type="hidden" name="qty" value="1">
                                                                 <input type="hidden" name="product_id" value="{{$bongobondhoBangladeshCatBook->id}}">
 
-                                                                <button class="addToCart" type="submit" title="Add to Cart"><span>Add to Cart</span></button>
+                                                                <button class="addToCart" type="submit" title="{{__('frontend.Add to Cart')}}"><span>{{__('frontend.Add to Cart')}}</span></button>
 
                                                                 <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$bongobondhoBangladeshCatBook->name}}"
                                                                         onclick='event.preventDefault();
@@ -398,10 +399,10 @@
                                                             </div>
                                                             <div class="price">
                                                                 @if($promotionSalePrice>0)
-                                                                    <span class="price-new">{{$setting->currency}} {{$promotionSalePrice}}</span>
-                                                                    <span class="price-old">{{$setting->currency}} {{$bongobondhoBangladeshCatBook->productStock->sale_price}} </span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</span>
+                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($bongobondhoBangladeshCatBook->productStock->sale_price)}} </span>
                                                                 @else
-                                                                    <span class="price-new">{{$setting->currency}} {{$bongobondhoBangladeshCatBook->productStock->sale_price}}</span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($bongobondhoBangladeshCatBook->productStock->sale_price)}}</span>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -459,7 +460,7 @@
                             <h4 class="modtitle">{{__('frontend.Bangabandhu Popular Book')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
-                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">View All</a></li></ul></div>
+                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
                                 </div>
                                 <div class="categoryslider-content hide-featured preset01-6 preset02-4 preset03-3 preset04-2 preset05-1">
                                     <div class="loading-placeholder"></div>
@@ -485,7 +486,7 @@
                                                                 </a>
                                                             </div>
                                                             @if($discountPercent>0)
-                                                                <span class="label label-sale">- {{$discountPercent}}%</span>
+                                                                <span class="label label-sale">- {{MyHelper::bn_number($discountPercent)}}%</span>
                                                             @endif
                                                         </div>
                                                         <div class="right-block">
@@ -496,7 +497,7 @@
                                                                 <input class="form-control" type="hidden" name="qty" value="1">
                                                                 <input type="hidden" name="product_id" value="{{$bongobondhoPopularCatBook->id}}">
 
-                                                                <button class="addToCart" type="submit" title="Add to Cart"><span>Add to Cart</span></button>
+                                                                <button class="addToCart" type="submit" title="{{__('frontend.Add to Cart')}}"><span>{{__('frontend.Add to Cart')}}</span></button>
 
                                                                 <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$bongobondhoPopularCatBook->name}}"
                                                                         onclick='event.preventDefault();
@@ -552,10 +553,10 @@
                                                             </div>
                                                             <div class="price">
                                                                 @if($promotionSalePrice>0)
-                                                                    <span class="price-new">{{$setting->currency}} {{$promotionSalePrice}}</span>
-                                                                    <span class="price-old">{{$setting->currency}} {{$bongobondhoPopularCatBook->productStock->sale_price}} </span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</span>
+                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($bongobondhoPopularCatBook->productStock->sale_price)}} </span>
                                                                 @else
-                                                                    <span class="price-new">{{$setting->currency}} {{$bongobondhoPopularCatBook->productStock->sale_price}}</span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($bongobondhoPopularCatBook->productStock->sale_price)}}</span>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -604,7 +605,7 @@
                             <h4 class="modtitle">{{__('frontend.New books that you want to buy')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
-                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">View All</a></li></ul></div>
+                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
                                 </div>
                                 <div class="categoryslider-content hide-featured preset01-6 preset02-4 preset03-3 preset04-2 preset05-1">
                                     <div class="loading-placeholder"></div>
@@ -630,7 +631,7 @@
                                                                 </a>
                                                             </div>
                                                             @if($discountPercent>0)
-                                                                <span class="label label-sale">- {{$discountPercent}}%</span>
+                                                                <span class="label label-sale">- {{MyHelper::bn_number($discountPercent)}}%</span>
                                                             @endif
                                                         </div>
                                                         <div class="right-block">
@@ -641,7 +642,7 @@
                                                                 <input class="form-control" type="hidden" name="qty" value="1">
                                                                 <input type="hidden" name="product_id" value="{{$newProduct->id}}">
 
-                                                                <button class="addToCart" type="submit" title="Add to Cart"><span>Add to Cart</span></button>
+                                                                <button class="addToCart" type="submit" title="{{__('frontend.Add to Cart')}}"><span>{{__('frontend.Add to Cart')}}</span></button>
 
                                                                 <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$newProduct->name}}"
                                                                         onclick='event.preventDefault();
@@ -697,10 +698,10 @@
                                                             </div>
                                                             <div class="price">
                                                                 @if($promotionSalePrice>0)
-                                                                    <span class="price-new">{{$setting->currency}} {{$promotionSalePrice}}</span>
-                                                                    <span class="price-old">{{$setting->currency}} {{$newProduct->productStock->sale_price}} </span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</span>
+                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($newProduct->productStock->sale_price)}}</span>
                                                                 @else
-                                                                    <span class="price-new">{{$setting->currency}} {{$newProduct->productStock->sale_price}}</span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($newProduct->productStock->sale_price)}}</span>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -749,7 +750,7 @@
                             <h4 class="modtitle">{{__('frontend.Stories, novels, poems and more')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
-                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">View All</a></li></ul></div>
+                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
                                 </div>
                                 <div class="categoryslider-content hide-featured preset01-6 preset02-4 preset03-3 preset04-2 preset05-1">
                                     <div class="loading-placeholder"></div>
@@ -774,7 +775,7 @@
                                                                 </a>
                                                             </div>
                                                             @if($discountPercent>0)
-                                                                <span class="label label-sale">- {{$discountPercent}}%</span>
+                                                                <span class="label label-sale">- {{MyHelper::bn_number($discountPercent)}}%</span>
                                                             @endif
                                                         </div>
                                                         <div class="right-block">
@@ -782,7 +783,7 @@
                                                                 {!! Form::open(['route'=>'cart-products.store','method'=>'POST','class'=>'form-horizontal','files'=>false]) !!}
                                                                 <input class="form-control" type="hidden" name="qty" value="1">
                                                                 <input type="hidden" name="product_id" value="{{$StoriesNovelPoemsCatBook->id}}">
-                                                                <button class="addToCart" type="submit" title="Add to Cart"><span>Add to Cart</span></button>
+                                                                <button class="addToCart" type="submit" title="{{__('frontend.Add to Cart')}}"><span>{{__('frontend.Add to Cart')}}</span></button>
                                                                 <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$StoriesNovelPoemsCatBook->name}}"
                                                                         onclick='event.preventDefault();document.getElementById("wishListForm{{$StoriesNovelPoemsCatBook->id}}").submit();'>
                                                                     <i class="fa fa-heart-o"></i><span>{{$StoriesNovelPoemsCatBook->name}}</span>
@@ -834,10 +835,10 @@
 
                                                             <div class="price">
                                                                 @if($promotionSalePrice>0)
-                                                                    <span class="price-new">{{$setting->currency}} {{$promotionSalePrice}}</span>
-                                                                    <span class="price-old">{{$setting->currency}} {{$StoriesNovelPoemsCatBook->productStock->sale_price}} </span>
+                                                                    <san class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</san>
+                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($StoriesNovelPoemsCatBook->productStock->sale_price)}} </span>
                                                                 @else
-                                                                    <span class="price-new">{{$setting->currency}} {{$StoriesNovelPoemsCatBook->productStock->sale_price}}</span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($StoriesNovelPoemsCatBook->productStock->sale_price)}}</span>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -889,7 +890,7 @@
                             <h4 class="modtitle">{{__('frontend.Most Popular')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
-                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">View All</a></li></ul></div>
+                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
                                 </div>
                                 <div class="categoryslider-content hide-featured preset01-6 preset02-4 preset03-3 preset04-2 preset05-1">
                                     <div class="loading-placeholder"></div>
@@ -914,7 +915,7 @@
                                                                 </a>
                                                             </div>
                                                             @if($discountPercent>0)
-                                                                <span class="label label-sale">- {{$discountPercent}}%</span>
+                                                                <span class="label label-sale">- {{MyHelper::bn_number($discountPercent)}}%</span>
                                                             @endif
                                                         </div>
                                                         <div class="right-block">
@@ -922,7 +923,7 @@
                                                                 {!! Form::open(['route'=>'cart-products.store','method'=>'POST','class'=>'form-horizontal','files'=>false]) !!}
                                                                 <input class="form-control" type="hidden" name="qty" value="1">
                                                                 <input type="hidden" name="product_id" value="{{$mostPopularProduct->id}}">
-                                                                <button class="addToCart" type="submit" title="Add to Cart"><span>Add to Cart</span></button>
+                                                                <button class="addToCart" type="submit" title="{{__('frontend.Add to Cart')}}"><span>{{__('frontend.Add to Cart')}}</span></button>
                                                                 <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$mostPopularProduct->name}}"
                                                                         onclick='event.preventDefault();document.getElementById("wishListForm{{$mostPopularProduct->id}}").submit();'>
                                                                     <i class="fa fa-heart-o"></i><span>{{$mostPopularProduct->name}}</span>
@@ -974,10 +975,10 @@
 
                                                             <div class="price">
                                                                 @if($promotionSalePrice>0)
-                                                                    <span class="price-new">{{$setting->currency}} {{$promotionSalePrice}}</span>
-                                                                    <span class="price-old">{{$setting->currency}} {{$mostPopularProduct->productStock->sale_price}} </span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</span>
+                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($mostPopularProduct->productStock->sale_price)}} </span>
                                                                 @else
-                                                                    <span class="price-new">{{$setting->currency}} {{$mostPopularProduct->productStock->sale_price}}</span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($mostPopularProduct->productStock->sale_price)}}</span>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -1023,7 +1024,7 @@
                             <h4 class="modtitle">{{__('frontend.Top Rated')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
-                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">View All</a></li></ul></div>
+                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
                                 </div>
                                 <div class="categoryslider-content hide-featured preset01-4 preset02-3 preset03-2 preset04-2 preset05-1">
                                     <div class="loading-placeholder"></div>
@@ -1089,10 +1090,10 @@
                                                             </div>
                                                             <p class="price">
                                                                 @if($promotionSalePrice>0)
-                                                                    <span class="price-new">{{$setting->currency}} {{$promotionSalePrice}}</span>
-                                                                    <span class="price-old">{{$setting->currency}} {{$topRatedProduct->productStock->sale_price}} </span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</span>
+                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($topRatedProduct->productStock->sale_price)}} </span>
                                                                 @else
-                                                                    <span class="price-new">{{$setting->currency}} {{$topRatedProduct->productStock->sale_price}}</span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($topRatedProduct->productStock->sale_price)}}</span>
                                                                 @endif
                                                             </p>
                                                         </div>
@@ -1139,7 +1140,7 @@
                                     <h4 class="modtitle">{{__('frontend.Some books that may be added to your reading list')}}</h4>
                                     <div class="modcontent">
                                         <div class="page-top">
-                                            <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">View All</a></li></ul></div>
+                                            <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
                                         </div>
                                         <div class="categoryslider-content hide-featured preset01-6 preset02-4 preset03-3 preset04-2 preset05-1">
                                             <div class="loading-placeholder"></div>
@@ -1165,7 +1166,7 @@
                                                                         </a>
                                                                     </div>
                                                                     @if($discountPercent>0)
-                                                                        <span class="label label-sale">- {{$discountPercent}}%</span>
+                                                                        <span class="label label-sale">- {{MyHelper::bn_number($discountPercent)}}%</span>
                                                                     @endif
                                                                 </div>
                                                                 <div class="right-block">
@@ -1176,7 +1177,7 @@
                                                                         <input class="form-control" type="hidden" name="qty" value="1">
                                                                         <input type="hidden" name="product_id" value="{{$readingListProduct->id}}">
 
-                                                                        <button class="addToCart" type="submit" title="Add to Cart"><span>Add to Cart</span></button>
+                                                                        <button class="addToCart" type="submit" title="{{__('frontend.Add to Cart')}}"><span>{{__('frontend.Add to Cart')}}</span></button>
 
                                                                         <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$readingListProduct->name}}"
                                                                                 onclick='event.preventDefault();
@@ -1232,10 +1233,10 @@
                                                                     </div>
                                                                     <div class="price">
                                                                         @if($promotionSalePrice>0)
-                                                                            <span class="price-new">{{$setting->currency}} {{$promotionSalePrice}}</span>
-                                                                            <span class="price-old">{{$setting->currency}} {{$readingListProduct->productStock->sale_price}} </span>
+                                                                            <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</span>
+                                                                            <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($readingListProduct->productStock->sale_price)}} </span>
                                                                         @else
-                                                                            <span class="price-new">{{$setting->currency}} {{$readingListProduct->productStock->sale_price}}</span>
+                                                                            <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($readingListProduct->productStock->sale_price)}}</span>
                                                                         @endif
                                                                     </div>
                                                                 </div>

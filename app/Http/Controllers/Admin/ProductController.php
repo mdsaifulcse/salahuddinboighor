@@ -521,7 +521,7 @@ class ProductController extends Controller
         try{
             $validator = Validator::make($input, [
                 'name' => "required|max:200|unique:products,name,$id,id,deleted_at,NULL",
-                'name_bn' => "required|max:200|unique:products,name_bn,$id,id,deleted_at,NULL",
+                'name_bn' => "max:200|unique:products,name_bn,$id,id,deleted_at,NULL",
                 'keyword' => 'nullable|max:200',
                 'origin_id'=>'nullable|exists:origins,id',
                 'pack_size_unit_id'=>'nullable|exists:pack_size_units,id',

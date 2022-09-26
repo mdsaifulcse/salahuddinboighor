@@ -70,9 +70,10 @@ class AppServiceProvider extends ServiceProvider
                 ]);
             });
 
-        View::composer( // for frontend Footer --------------
+        View::composer( // for frontend Footer & Setting for admin dashboard --------------
             [
                 'client.layouts.partials.footer',
+                'admin.dashboard',
             ],
             function ($view)
             {

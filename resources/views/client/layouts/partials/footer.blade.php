@@ -20,7 +20,7 @@
                                     {{$setting->email1}}
                                 </li>
                                 <li class="time">
-                                    Open time: 24/7
+                                    {{__('frontend.Open time')}}: ২৪/৭
                                 </li>
                             </ul>
                         </div>
@@ -50,12 +50,12 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col_6urb  col-clear2">
                         <div class="box-information box-footer">
                             <div class="module clearfix">
-                                <h3 class="modtitle">Information</h3>
+                                <h3 class="modtitle">{{__('frontend.INFORMATION')}}</h3>
                                 <div class="modcontent">
                                     <ul class="menu">
-                                        <li><a href="{{URL::to('/about-us.html')}}">About Us</a></li>
-                                        <li><a href="{{URL::to('/contact.htm')}}">Contact Us</a></li>
-                                        <li><a href="{{URL::to('/page/privacy-policy')}}">Privacy Policy</a></li>
+                                        <li><a href="{{URL::to('/about-us.html')}}">{{__('frontend.About Us')}}</a></li>
+                                        <li><a href="{{URL::to('/contact.htm')}}">{{__('frontend.Contact Us')}}</a></li>
+                                        <li><a href="{{URL::to('/page/privacy-policy')}}">{{__('frontend.Privacy Policy')}}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -70,19 +70,19 @@
                                     <div class="newsletter" style="width:100%      ;  ; ">
                                         <div class="title-block">
                                             <div class="page-heading font-title">
-                                                Sign up for Newsletter
+                                                {{__('frontend.SIGN UP FOR NEWSLETTER')}}
                                             </div>
-                                            <div class="promotext">We’ll never share your email address with a third-party. </div>
+                                            <div class="promotext">{{__('frontend.We’ll never share your email address with a third-party.')}} </div>
                                         </div>
                                         <div class="block_content">
                                             {!! Form::open(['url' => 'news-letter-save','class'=>'form-group form-inline signup send-mail','method'=>'POST','files'=>false]) !!}
                                                 <div class="form-group">
                                                     <div class="input-box">
-                                                        <input type="email" name="email" placeholder="Your email address..." value="" class="form-control" id="txtemail" size="55" required>
+                                                        <input type="email" name="email" placeholder="{{__('frontend.Your email address')}}..." value="" class="form-control" id="txtemail" size="55" required>
                                                     </div>
                                                     <div class="subcribe">
                                                         <button class="btn btn-default font-title" type="submit" onclick="return subscribe_newsletter();" name="submit">
-                                                            Subscribe
+                                                            {{__('frontend.Subscribe')}}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -139,7 +139,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 copyright-w">
                     <div class="copyright0">
-                        <h5 class="copyright-title text-center">{{$setting->company_name}} {{$setting->copyright}} All Rights Reserved. Designed by <a href="https://inovexidea.com" target="_blank" type="INovex Idea Solution Ltd."> INovex Idea Solution Ltd. </a></h5>
+                        <h5 class="copyright-title text-center">{{$setting->company_name}} {{$setting->copyright}}{{__('frontend.All Rights Reserved. Designed by')}}  <a href="https://inovexidea.com" target="_blank" type="INovex Idea Solution Ltd."> INovex Idea Solution Ltd. </a></h5>
                     </div>
                 </div>
 

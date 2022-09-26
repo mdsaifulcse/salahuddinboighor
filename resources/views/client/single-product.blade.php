@@ -126,13 +126,13 @@
                                 }
                                 ?>
                                 @if($promotionSalePrice>0)
-                                    <span class="price-new"><span itemprop="price" id="price-special">{{$currency}} {{$promotionSalePrice}}</span></span>
-                                    <span class="price-old" id="price-old">{{$currency}} {{$product->productStock->sale_price}}</span>
+                                    <span class="price-new"><span itemprop="price" id="price-special">{{$currency}} {{MyHelper::bn_number($promotionSalePrice)}}</span></span>
+                                    <span class="price-old" id="price-old">{{$currency}} {{MyHelper::bn_number($product->productStock->sale_price)}} </span>
                                 @else
-                                    <span class="price-new"><span itemprop="price" id="price-special">{{$currency}} {{$product->productStock->sale_price}}</span></span>
+                                    <span class="price-new"><span itemprop="price" id="price-special">{{$currency}}  {{MyHelper::bn_number($product->productStock->sale_price)}}</span></span>
                                 @endif
                                 @if($discountPercent>0)
-                                    <span class="label-product label-sale">-{{$discountPercent}}%</span>
+                                    <span class="label-product label-sale">-{{MyHelper::bn_number($discountPercent)}}%</span>
                                 @endif
                             </div>
                             <div class="product-box-desc">
@@ -234,15 +234,15 @@
                             <div class="payment-info border-bottom">
                                 <div class="d-flex mt-3">
                                     <img src="{{asset('images/default/cod-small.svg')}}" alt="icon" width="25px" height="25px">
-                                    <p class="text-capitalize ml-3">Cash on delivery</p>
+                                    <p class="text-capitalize ml-3">{{__('frontend.Cash On Delivery')}}</p>
                                 </div>
                                 <div class="d-flex mt-4">
-                                    <img src="{{asset('images/default/happy-return.svg')}}" alt="icon" width="22px" height="22px">
-                                    <p class="text-capitalize ml-3">7 days happy return</p>
+                                    <img src="{{asset('images/default/happy-return.svg')}}">
+                                    <p class="text-capitalize ml-3">{{__('frontend.7 days happy return')}}</p>
                                 </div>
                                 <div class="d-flex mt-4">
                                     <img src="{{asset('images/default/deliver-icon.png')}}" alt="icon" width="25px" height="27px">
-                                    <p class="text-capitalize ml-3">Delivery Charge Tk. 50(Online order)
+                                    <p class="text-capitalize ml-3">{{__('frontend.Delivery Charge Tk. 50(Online order)')}}
                                         <a href="#" class=" details-tooltip px-0" data-toggle="tooltip" data-placement="top" title="যে কোন পরিমাণ পণ্য অর্ডার করলেই সারাদেশে আমাদের ডেলিভারি চার্জ অনলাইন অর্ডারে 50(Online order) টাকা ও ফোন অর্ডারে 70(Phone order) টাকা।">
                                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                                         </a>
@@ -250,7 +250,7 @@
                                 </div>
                                 <div class="d-flex info">
                                     <img src="{{asset('images/default/wallet-two.svg')}}" alt="icon" id="point">
-                                    <p class="text-capitalize ml-3">Purchase &amp; Earn
+                                    <p class="text-capitalize ml-3">{{__('frontend.Purchase & Earn')}}
                                         <a href="#" class=" details-tooltip px-0" data-toggle="tooltip" data-placement="top" title="" data-original-title="প্রতি সফল কেনাকাটায় রেজিস্টার্ড ইউজার পাচ্ছেন পয়েন্টস। পয়েন্টস রকমারি ব্যালেন্স এ জমা করে  কিনতে পারছেন যে কোনো পণ্য।">
                                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                                         </a>
@@ -298,7 +298,7 @@
                                             <table class="table table-striped table-bordered table-hover" style="font-size:15px;">
                                                 <tbody>
                                                 <tr>
-                                                    <td width="20%" class="bg-info">{{__('Title')}}</td>
+                                                    <td width="20%" class="bg-info">{{__('frontend.Book Title Bn')}}</td>
                                                     <td class="text-left">{{$product->name_bn}}</td>
                                                 </tr>
                                                 <tr>

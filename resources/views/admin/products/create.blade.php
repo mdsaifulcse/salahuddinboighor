@@ -60,7 +60,7 @@
                             <div class="row">
                                 <div class="form-group col-md-9 col-lg-9 inputSec">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-8">
                                             <label for="name" class="col-form-label">{{__('admin.Book Title')}}<sup class="text-danger">*</sup></label>
                                             {!! Form::text('name', $value=old('name'), array('placeholder' => __('Book Title'),'class' => 'form-control','required'=>false)) !!}
 
@@ -68,14 +68,14 @@
                                                 <span class="help-block"><strong class="text-danger">{{ $errors->first('name') }}</strong></span>
                                             @endif
                                         </div>
-                                        <div class="col-md-6">
-                                            <label for="name_bn" class="col-form-label">{{__('admin.Book Title Bn')}}<sup class="text-danger">*</sup></label>
-                                            {!! Form::text('name_bn', $value=old('name_bn'), array('placeholder' => __('admin.Book Title Bn'),'class' => 'form-control','required'=>false)) !!}
+                                        {{--<div class="col-md-6">--}}
+                                            {{--<label for="name_bn" class="col-form-label">{{__('admin.Book Title Bn')}}<sup class="text-danger">*</sup></label>--}}
+                                            {{--{!! Form::text('name_bn', $value=old('name_bn'), array('placeholder' => __('admin.Book Title Bn'),'class' => 'form-control','required'=>false)) !!}--}}
 
-                                            @if ($errors->has('name_bn'))
-                                                <span class="help-block"><strong class="text-danger">{{ $errors->first('name_bn') }}</strong></span>
-                                            @endif
-                                        </div>
+                                            {{--@if ($errors->has('name_bn'))--}}
+                                                {{--<span class="help-block"><strong class="text-danger">{{ $errors->first('name_bn') }}</strong></span>--}}
+                                            {{--@endif--}}
+                                        {{--</div>--}}
                                     </div>
 
                                     <div class="row">
