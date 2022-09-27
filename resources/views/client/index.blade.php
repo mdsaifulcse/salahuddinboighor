@@ -457,7 +457,7 @@
                 <div class="row row_7qar  row-style ">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_4xg8  col-style">
                         <div id="bongobondhoPopular" class=" so-category-slider container-slider module so-category-slider-ltr cate-slider1">
-                            <h4 class="modtitle">{{__('frontend.Bangabandhu Popular Book')}}</h4>
+                            <h4 class="modtitle">{{__('frontend.Religion and Science')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
                                     <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
@@ -466,14 +466,14 @@
                                     <div class="loading-placeholder"></div>
                                     <div class="slider category-slider-inner not-js cols-6 products-list" data-effect="none">
 
-                                        @forelse($bongobondhoPopularCatBooks as $key=>$bongobondhoPopularCatBook)
+                                        @forelse($religionScienceCatBooks as $key=>$religionScienceCatBook)
                                             <?php
                                             $discountPercent=0;
                                             $promotionSalePrice=0;
-                                            if ($bongobondhoPopularCatBook->promotion==\App\Models\Product::YES && isset($bongobondhoPopularCatBook->productPromotion) && $bongobondhoPopularCatBook->productPromotion->date_end>=date('Y-m-d'))
+                                            if ($religionScienceCatBook->promotion==\App\Models\Product::YES && isset($religionScienceCatBook->productPromotion) && $religionScienceCatBook->productPromotion->date_end>=date('Y-m-d'))
                                             {
-                                                $discountPercent=$bongobondhoPopularCatBook->productPromotion->promotion_by_percent;
-                                                $promotionSalePrice=$bongobondhoPopularCatBook->productPromotion->promotion_price;
+                                                $discountPercent=$religionScienceCatBook->productPromotion->promotion_by_percent;
+                                                $promotionSalePrice=$religionScienceCatBook->productPromotion->promotion_price;
                                             }
                                             ?>
                                             <div class="item">
@@ -481,8 +481,8 @@
                                                     <div class="product-item-container">
                                                         <div class="left-block left-b">
                                                             <div class="product-image-container ">
-                                                                <a class="lt-image" href="{{url('book/details/'.$bongobondhoPopularCatBook->id."/$bongobondhoPopularCatBook->name")}}" target="_self" title="{{$bongobondhoPopularCatBook->name}}">
-                                                                    <img data-sizes="auto" src="" data-src="{{asset($bongobondhoPopularCatBook->productImages[0]->medium)}}" alt="{{$bongobondhoPopularCatBook->name}}" class="lazyload">
+                                                                <a class="lt-image" href="{{url('book/details/'.$religionScienceCatBook->id."/$religionScienceCatBook->name")}}" target="_self" title="{{$religionScienceCatBook->name}}">
+                                                                    <img data-sizes="auto" src="" data-src="{{asset($religionScienceCatBook->productImages[0]->medium)}}" alt="{{$religionScienceCatBook->name}}" class="lazyload">
                                                                 </a>
                                                             </div>
                                                             @if($discountPercent>0)
@@ -495,22 +495,22 @@
                                                                 {!! Form::open(['route'=>'cart-products.store','method'=>'POST','class'=>'form-horizontal','files'=>false]) !!}
 
                                                                 <input class="form-control" type="hidden" name="qty" value="1">
-                                                                <input type="hidden" name="product_id" value="{{$bongobondhoPopularCatBook->id}}">
+                                                                <input type="hidden" name="product_id" value="{{$religionScienceCatBook->id}}">
 
                                                                 <button class="addToCart" type="submit" title="{{__('frontend.Add to Cart')}}"><span>{{__('frontend.Add to Cart')}}</span></button>
 
-                                                                <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$bongobondhoPopularCatBook->name}}"
+                                                                <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$religionScienceCatBook->name}}"
                                                                         onclick='event.preventDefault();
-                                                                                document.getElementById("wishListForm{{$bongobondhoPopularCatBook->id}}").submit();'><i class="fa fa-heart-o"></i><span>{{$bongobondhoPopularCatBook->name}}</span></button>
+                                                                                document.getElementById("wishListForm{{$religionScienceCatBook->id}}").submit();'><i class="fa fa-heart-o"></i><span>{{$religionScienceCatBook->name}}</span></button>
 
                                                                 {!! Form::close() !!}
                                                                 {{--<button class="compare btn-button" type="button" title="Add to Compare" onclick="compare.add('95');"><i class="fa fa-retweet"></i><span>Add to Compare</span></button>--}}
 
-                                                                <form id="wishListForm{{$bongobondhoPopularCatBook->id}}" action="{{route('cart-products.store')}}" method="POST" style="display: none;">
+                                                                <form id="wishListForm{{$religionScienceCatBook->id}}" action="{{route('cart-products.store')}}" method="POST" style="display: none;">
                                                                     @csrf
                                                                     <input class="form-control" type="hidden" name="qty" value="1">
                                                                     <input class="form-control" type="hidden" name="type" value="{{\App\Models\CartProduct::WISHLIST}}">
-                                                                    <input type="hidden" name="product_id" value="{{$bongobondhoPopularCatBook->id}}">
+                                                                    <input type="hidden" name="product_id" value="{{$religionScienceCatBook->id}}">
 
                                                                 </form>
                                                             </div>
@@ -521,8 +521,8 @@
                                                                         $maxReview=5;
                                                                         $averageReview=0;
 
-                                                                        if (!empty($bongobondhoPopularCatBook->product_review_avg_rating)){
-                                                                            $averageReview=ceil($bongobondhoPopularCatBook->product_review_avg_rating);
+                                                                        if (!empty($religionScienceCatBook->product_review_avg_rating)){
+                                                                            $averageReview=ceil($religionScienceCatBook->product_review_avg_rating);
                                                                         }
                                                                         $inActiveStar=$maxReview-$averageReview;
                                                                         ?>
@@ -539,13 +539,13 @@
                                                                     </div>
                                                                 </div>
                                                                 <h4>
-                                                                    <a href="{{url('book/details/'.$bongobondhoPopularCatBook->id."/$bongobondhoPopularCatBook->name")}}" title="{{$bongobondhoPopularCatBook->name}}" target="_self">
+                                                                    <a href="{{url('book/details/'.$religionScienceCatBook->id."/$religionScienceCatBook->name")}}" title="{{$religionScienceCatBook->name}}" target="_self">
                                                                         <?php
-                                                                        if (strlen($bongobondhoPopularCatBook->name) != strlen(utf8_decode($bongobondhoPopularCatBook->name)))
+                                                                        if (strlen($religionScienceCatBook->name) != strlen(utf8_decode($religionScienceCatBook->name)))
                                                                         {
-                                                                            echo substr($bongobondhoPopularCatBook->name,0,120);
+                                                                            echo substr($religionScienceCatBook->name,0,120);
                                                                         }else{
-                                                                            echo substr($bongobondhoPopularCatBook->name,0,60);
+                                                                            echo substr($religionScienceCatBook->name,0,60);
                                                                         }
                                                                         ?>
                                                                     </a>
@@ -554,9 +554,9 @@
                                                             <div class="price">
                                                                 @if($promotionSalePrice>0)
                                                                     <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</span>
-                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($bongobondhoPopularCatBook->productStock->sale_price)}} </span>
+                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($religionScienceCatBook->productStock->sale_price)}} </span>
                                                                 @else
-                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($bongobondhoPopularCatBook->productStock->sale_price)}}</span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($religionScienceCatBook->productStock->sale_price)}}</span>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -747,7 +747,7 @@
                 <div class="row row_7qar  row-style ">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_4xg8  col-style"> <!-- end Shop by Categories row -->
                         <div id="StoriesNovelpPoems" class=" so-category-slider container-slider module so-category-slider-ltr cate-slider1">
-                            <h4 class="modtitle">{{__('frontend.Stories, novels, poems and more')}}</h4>
+                            <h4 class="modtitle">{{__('frontend.Creative and textual helpful')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
                                     <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
@@ -755,14 +755,14 @@
                                 <div class="categoryslider-content hide-featured preset01-6 preset02-4 preset03-3 preset04-2 preset05-1">
                                     <div class="loading-placeholder"></div>
                                     <div class="slider category-slider-inner not-js cols-6 products-list" data-effect="none">
-                                        @forelse($StoriesNovelPoemsCatBooks as $key=>$StoriesNovelPoemsCatBook)
+                                        @forelse($creativeCatBooks as $key=>$creativeCatBook)
                                             <?php
                                             $discountPercent=0;
                                             $promotionSalePrice=0;
-                                            if ($StoriesNovelPoemsCatBook->promotion==\App\Models\Product::YES && isset($StoriesNovelPoemsCatBook->productPromotion) && $StoriesNovelPoemsCatBook->productPromotion->date_end>=date('Y-m-d'))
+                                            if ($creativeCatBook->promotion==\App\Models\Product::YES && isset($creativeCatBook->productPromotion) && $creativeCatBook->productPromotion->date_end>=date('Y-m-d'))
                                             {
-                                                $discountPercent=$StoriesNovelPoemsCatBook->productPromotion->promotion_by_percent;
-                                                $promotionSalePrice=$StoriesNovelPoemsCatBook->productPromotion->promotion_price;
+                                                $discountPercent=$creativeCatBook->productPromotion->promotion_by_percent;
+                                                $promotionSalePrice=$creativeCatBook->productPromotion->promotion_price;
                                             }
                                             ?>
                                             <div class="item">
@@ -770,8 +770,8 @@
                                                     <div class="product-item-container">
                                                         <div class="left-block left-b">
                                                             <div class="product-image-container ">
-                                                                <a class="lt-image" href="{{url('book/details/'.$StoriesNovelPoemsCatBook->id."/$StoriesNovelPoemsCatBook->name")}}" target="_self" title="{{$StoriesNovelPoemsCatBook->name}}">
-                                                                    <img data-sizes="auto" src="" data-src="{{asset($StoriesNovelPoemsCatBook->productImages[0]->medium)}}" alt="{{$StoriesNovelPoemsCatBook->name}}" class="lazyload">
+                                                                <a class="lt-image" href="{{url('book/details/'.$creativeCatBook->id."/$creativeCatBook->name")}}" target="_self" title="{{$creativeCatBook->name}}">
+                                                                    <img data-sizes="auto" src="" data-src="{{asset($creativeCatBook->productImages[0]->medium)}}" alt="{{$creativeCatBook->name}}" class="lazyload">
                                                                 </a>
                                                             </div>
                                                             @if($discountPercent>0)
@@ -782,18 +782,18 @@
                                                             <div class="button-group cartinfo--static">
                                                                 {!! Form::open(['route'=>'cart-products.store','method'=>'POST','class'=>'form-horizontal','files'=>false]) !!}
                                                                 <input class="form-control" type="hidden" name="qty" value="1">
-                                                                <input type="hidden" name="product_id" value="{{$StoriesNovelPoemsCatBook->id}}">
+                                                                <input type="hidden" name="product_id" value="{{$creativeCatBook->id}}">
                                                                 <button class="addToCart" type="submit" title="{{__('frontend.Add to Cart')}}"><span>{{__('frontend.Add to Cart')}}</span></button>
-                                                                <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$StoriesNovelPoemsCatBook->name}}"
-                                                                        onclick='event.preventDefault();document.getElementById("wishListForm{{$StoriesNovelPoemsCatBook->id}}").submit();'>
-                                                                    <i class="fa fa-heart-o"></i><span>{{$StoriesNovelPoemsCatBook->name}}</span>
+                                                                <button class="wishlist btn-button" type="button" title="Add to Wish List - {{$creativeCatBook->name}}"
+                                                                        onclick='event.preventDefault();document.getElementById("wishListForm{{$creativeCatBook->id}}").submit();'>
+                                                                    <i class="fa fa-heart-o"></i><span>{{$creativeCatBook->name}}</span>
                                                                 </button>
                                                                 {!! Form::close() !!}
-                                                                <form id="wishListForm{{$StoriesNovelPoemsCatBook->id}}" action="{{route('cart-products.store')}}" method="POST" style="display: none;">
+                                                                <form id="wishListForm{{$creativeCatBook->id}}" action="{{route('cart-products.store')}}" method="POST" style="display: none;">
                                                                     @csrf
                                                                     <input class="form-control" type="hidden" name="qty" value="1">
                                                                     <input class="form-control" type="hidden" name="type" value="{{\App\Models\CartProduct::WISHLIST}}">
-                                                                    <input type="hidden" name="product_id" value="{{$StoriesNovelPoemsCatBook->id}}">
+                                                                    <input type="hidden" name="product_id" value="{{$creativeCatBook->id}}">
                                                                 </form>
                                                                 {{--<button class="compare btn-button" type="button" title="Add to Compare" onclick="compare.add('95');"><i class="fa fa-retweet"></i><span>Add to Compare</span></button>--}}
                                                             </div>
@@ -803,8 +803,8 @@
                                                                         <?php
                                                                         $maxReview=5;
                                                                         $averageReview=0;
-                                                                        if (!empty($StoriesNovelPoemsCatBook->product_review_avg_rating)){
-                                                                            $averageReview=ceil($StoriesNovelPoemsCatBook->product_review_avg_rating);
+                                                                        if (!empty($creativeCatBook->product_review_avg_rating)){
+                                                                            $averageReview=ceil($creativeCatBook->product_review_avg_rating);
                                                                         }
                                                                         $inActiveStar=$maxReview-$averageReview;
                                                                         ?>
@@ -820,13 +820,13 @@
                                                                     </div>
                                                                 </div>
                                                                 <h4>
-                                                                    <a href="{{url('book/details/'.$StoriesNovelPoemsCatBook->id."/$StoriesNovelPoemsCatBook->name")}}" title="{{$StoriesNovelPoemsCatBook->name}}" target="_self">
+                                                                    <a href="{{url('book/details/'.$creativeCatBook->id."/$creativeCatBook->name")}}" title="{{$creativeCatBook->name}}" target="_self">
                                                                         <?php
-                                                                        if (strlen($StoriesNovelPoemsCatBook->name) != strlen(utf8_decode($StoriesNovelPoemsCatBook->name)))
+                                                                        if (strlen($creativeCatBook->name) != strlen(utf8_decode($creativeCatBook->name)))
                                                                         {
-                                                                            echo substr($StoriesNovelPoemsCatBook->name,0,120);
+                                                                            echo substr($creativeCatBook->name,0,120);
                                                                         }else{
-                                                                            echo substr($StoriesNovelPoemsCatBook->name,0,60);
+                                                                            echo substr($creativeCatBook->name,0,60);
                                                                         }
                                                                         ?>
                                                                     </a>
@@ -836,9 +836,9 @@
                                                             <div class="price">
                                                                 @if($promotionSalePrice>0)
                                                                     <san class="price-new">{{$setting->currency}} {{MyHelper::bn_number($promotionSalePrice)}}</san>
-                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($StoriesNovelPoemsCatBook->productStock->sale_price)}} </span>
+                                                                    <span class="price-old">{{$setting->currency}} {{MyHelper::bn_number($creativeCatBook->productStock->sale_price)}} </span>
                                                                 @else
-                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($StoriesNovelPoemsCatBook->productStock->sale_price)}}</span>
+                                                                    <span class="price-new">{{$setting->currency}} {{MyHelper::bn_number($creativeCatBook->productStock->sale_price)}}</span>
                                                                 @endif
                                                             </div>
                                                         </div>

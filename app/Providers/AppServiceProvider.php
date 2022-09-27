@@ -52,21 +52,21 @@ class AppServiceProvider extends ServiceProvider
                 $setting=$setting=DataLoad::setting();
 
                 $bongobondhoBangladeshCatBooks=Product::filterCategoryProducts(['status'=>Product::PUBLISHED,'show_home'=>Product::YES],
-                    ['bongobondho','bangladesh','liberation-war'])->take(20)
+                    ['muktizuddhoo-bonghoondhu','bangladesh'])->take(20)
                     ->orderBy('products.id','DESC')->get();
 
-                $bongobondhoPopularCatBooks=Product::filterCategoryProducts(['status'=>Product::PUBLISHED,'show_home'=>Product::YES],
-                    ['bangabandhu-popular'])->take(20)
+                $religionScienceCatBooks=Product::filterCategoryProducts(['status'=>Product::PUBLISHED,'show_home'=>Product::YES],
+                    ['biggan-bishoyok','dhormio-grantho-choto','dhormio-grantho-boro'])->take(20)
                     ->orderBy('products.id','DESC')->get();
 
-                $StoriesNovelPoemsCatBooks=Product::filterCategoryProducts(['status'=>Product::PUBLISHED,'show_home'=>Product::YES],
-                    ['story','novel','poetry'])->take(20)
+                $creativeCatBooks=Product::filterCategoryProducts(['status'=>Product::PUBLISHED,'show_home'=>Product::YES],
+                    ['srijonshil-majhari','pattho-hohayok'])->take(20)
                     ->orderBy('products.id','DESC')->get();
 
                 $view->with(['setting'=>$setting,
                     'bongobondhoBangladeshCatBooks'=>$bongobondhoBangladeshCatBooks,
-                    'bongobondhoPopularCatBooks'=>$bongobondhoPopularCatBooks,
-                    'StoriesNovelPoemsCatBooks'=>$StoriesNovelPoemsCatBooks,
+                    'religionScienceCatBooks'=>$religionScienceCatBooks,
+                    'creativeCatBooks'=>$creativeCatBooks,
                 ]);
             });
 
