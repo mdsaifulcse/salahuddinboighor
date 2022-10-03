@@ -24,13 +24,10 @@ class SearchProductController extends Controller
 {
     public function index(Request $request, $categoryId=null)
     {
-        if (!is_null($categoryId)){
+        if (!is_null($categoryId))  // filter category products ----------
+        {
 
-            $categoryData=Category::with('products')->select('id','category_name','category_name_bn','link')
-                ->where('id',$categoryId)->first();
-        }else{
-            $categoryData=Category::with('products')->select('id','category_name','category_name_bn','link')
-                ->where('category_name_bn',$request->category)->first();
+            $categoryData=$this->checkCategory($categoryId);
         }
 
         if (empty($categoryData))
@@ -44,10 +41,9 @@ class SearchProductController extends Controller
             ->filterProducts('categoryProducts','categories','id',$categoryData->id)
             ->where('status',Product::PUBLISHED)->orderBy('products.id','DESC');
 
-        if (!empty($request->sub_cat))
+        if (!empty($request->sub_cat)) // filter sub category products ----------
         {
-            $subCategory=SubCategory::select('id','link')
-                ->where('link',$request->sub_cat)->first();
+            $subCategory=$this->checkSubCategory($request->sub_cat);
 
             if (empty($subCategory))
             {
@@ -57,10 +53,9 @@ class SearchProductController extends Controller
             $products=$products->filterProducts('subCategoryProducts','sub_categories','link',$subCategory->link);
 
         }
-        if (!empty($request->third_sub_cat))
+        if (!empty($request->third_sub_cat)) // filter third sub category products ----------
         {
-            $thirdCategory=ThirdSubCategory::select('id','link')
-                ->where('link',$request->third_sub_cat)->first();
+            $thirdCategory=$this->checkThirdSubCategory($request->third_sub_cat);
 
             if (empty($thirdCategory))
             {
@@ -70,10 +65,9 @@ class SearchProductController extends Controller
             $products=$products->filterProducts('thirdCategoryProducts','third_sub_categories','link',$thirdCategory->link);
 
         }
-        if (!empty($request->brand))
+        if (!empty($request->brand))  // filter brand products ----------
         {
-            $brand=Brand::select('id','link')
-                ->where('link',$request->brand)->first();
+            $brand=$this->checkBrand($request->brand);
 
             if (empty($brand))
             {
@@ -120,8 +114,7 @@ class SearchProductController extends Controller
     public function searchProduct(Request $request)
     {
 
-        $categoryData=Category::with('products')->select('id','category_name','link')
-            ->where('id',$request->category_id)->first();
+        $categoryData=$this->checkCategory($request->category_id);
 
 
         $products=Product::with('categoryProducts','subCategoryProducts','thirdCategoryProducts','productImages','productStock',
@@ -135,10 +128,9 @@ class SearchProductController extends Controller
 
 
 
-        if (!empty($request->sub_cat))
+        if (!empty($request->sub_cat)) // filter sub category products ----------
         {
-            $subCategory=SubCategory::select('id','link')
-                ->where('link',$request->sub_cat)->first();
+            $subCategory=SubCategory::select('id','link')->where('link',$request->sub_cat)->first();
 
             if (empty($subCategory))
             {
@@ -149,10 +141,9 @@ class SearchProductController extends Controller
 
         }
 
-        if (!empty($request->third_sub_cat))
+        if (!empty($request->third_sub_cat)) // filter third sub category products ----------
         {
-            $thirdCategory=ThirdSubCategory::select('id','link')
-                ->where('link',$request->third_sub_cat)->first();
+            $thirdCategory=$this->checkThirdSubCategory($request->third_sub_cat);
 
             if (empty($thirdCategory))
             {
@@ -162,10 +153,9 @@ class SearchProductController extends Controller
             $products=$products->filterProducts('thirdCategoryProducts','third_sub_categories','link',$thirdCategory->link);
         }
 
-        if (!empty($request->brand))
+        if (!empty($request->brand)) // filter brand products ----------
         {
-            $brand=Brand::select('id','link')
-                ->where('link',$request->brand)->first();
+            $brand=$this->checkBrand($request->brand);
 
             if (empty($brand))
             {
@@ -188,7 +178,51 @@ class SearchProductController extends Controller
         $products=$products->paginate($perPage);
 
         $setting=$setting=DataLoad::setting();
-        return view('client.product-search',compact('setting','products','categoryData','request','request'));
+        return view('client.product-search',compact('setting','products','categoryData','request'));
+    }
+
+    public function searchTagsProduct(Request $request)
+    {
+
+        $products=Product::with('categoryProducts','subCategoryProducts','thirdCategoryProducts','productImages','productStock',
+            'brandProducts','productPromotion') ->withCount('productReview')->withAvg('productReview','rating')
+            ->where(['status'=>Product::PUBLISHED])->orderBy('products.id','DESC');
+
+        $tag='';
+        if ($request->has('tag') && $request->tag=='feature'){
+            $products=$products->where(['is_feature'=>Product::YES]);
+            $tag=$request->tag;
+        }
+
+        $perPage=20;
+        if ($request->has('perPage'))
+        {
+            $perPage=$request->perPage;
+        }
+
+        $products=$products->paginate($perPage);
+
+        $setting=$setting=DataLoad::setting();
+        return view('client.tags-products',compact('setting','products','tag','request'));
+    }
+
+
+    public function checkCategory($categoryId){
+       return Category::with('products')->select('id','category_name','link')
+            ->where('id',$categoryId)->first();
+    }
+
+
+    public function checkSubCategory($sub_cat){
+       return SubCategory::select('id','link')->where('link',$sub_cat)->first();
+    }
+
+    public function checkThirdSubCategory($third_sub_cat){
+       return ThirdSubCategory::select('id','link')->where('link',$third_sub_cat)->first();
+    }
+
+    public function checkBrand($brand){
+       return Brand::select('id','link')->where('link',$brand)->first();
     }
 
 

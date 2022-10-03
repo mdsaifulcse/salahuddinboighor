@@ -1,27 +1,23 @@
 @extends('client.layouts.master')
 @section('head')
-    <title> {{$authorData->name}} Books </title>
+    <title> {{__('frontend.Feature Product')}} Products </title>
     <meta name="description" content="" /><meta name="keywords" content=" " />
 @endsection
+
 @section('style')
     <link rel="stylesheet" href="{{asset('/client/assets')}}/javascript/so_color_swatches_pro/css/style.css">
     <link rel="stylesheet" href="{{asset('/client/assets')}}/javascript/so_filter_shop_by/css/nouislider.css">
     <link rel="stylesheet" href="{{asset('/client/assets')}}/javascript/so_filter_shop_by/css/style.css">
     <link rel="stylesheet" href="{{asset('/client/assets')}}/javascript/soconfig/css/owl.carousel.css">
-
 @endsection
 @section('content')
 <script src="{{asset('/client/assets')}}/javascript/jquery/jquery-2.1.1.min.js"></script>
     <div class="breadcrumbs ">
         <div class="container">
-            <div class="current-name">
-                {{$authorData->name}}
-            </div>
+            <div class="current-name"> {{__('frontend.Feature Product')}} </div>
             <ul class="breadcrumb">
                 <li><a href="{{URL::to('/')}}"><i class="fa fa-home"></i></a></li>
-                <li><a href="javascript:void(0)">{{__('frontend.Book')}}</a></li>
-                <li><a href="{{URL::to('/book/authors')}}">{{__('frontend.Author')}}</a></li>
-                <li><a href="{{URL::to('book/author/'.$authorData->id.'?ref='.$authorData->name)}}">{{$authorData->name}}</a></li>
+                <li><a href="javascript:void(0)"> {{__('frontend.Feature Product')}} </a></li>
             </ul>
         </div>
     </div>
@@ -42,25 +38,11 @@
                             {{--</li>--}}
                         {{--</ul>--}}
                     {{--</div>--}}
-                    <h3 class="title-category ">{{$authorData->name}}</h3>
-                    <section style="background-color: #01a75485;padding: 20px;border-radius: 5px;">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img class="img-fluid img-circle img-responsive center-block" src="{{asset($authorData->photo)}}" alt="{{$authorData->name}}" title="{{$authorData->name}}">
-                            </div>
-                            <div class="col-md-9">
-                                <h3>{{$authorData->name}}</h3>
-                                <?php
-                                $halfBio=substr($authorData->bio,0,920);
-                                echo $halfBio;
-                                ?>
-                                <a id="readMore"><strong>Read More</strong></a>
-                                <span style="display:none;" id="fullBio"><?php echo $halfBio=substr($authorData->bio,923,-1)?></span>
-
-                            </div>
+                    <h3 class="title-category ">{{__('frontend.Feature Product')}}</h3>
+                    <div class="form-group category-info">
+                        <div class=" row">
                         </div>
-                    </section>
-
+                    </div>
                     <div class="product-filter product-filter-top filters-panel">
                         <div class="row">
                             <div class="col-md-4 col-sm-5 view-mode">
@@ -114,10 +96,29 @@
                                             <img src="{{asset($product->productImages[0]->medium)}}" alt="{{$product->name}}" title="{{$product->name}}" class="img-responsive" id="product-image-{{$key}}" />
                                         </a>
                                     </div>
+                                    <div class="countdown_box hidden-xs">
+                                        {{--<div class="countdown_inner">--}}
+                                            {{--<script type="text/javascript">--}}
+                                                {{--$(function () {--}}
+                                                    {{--var austDay = new Date(2023, 12-1 , 29);--}}
+                                                    {{--$('.defaultCountdown-95').countdown(austDay, function(event) {--}}
+                                                        {{--var $this = $(this).html(event.strftime(''--}}
+                                                            {{--+ '<div class="time-item time-day"><div class="num-time">%D</div><div class="name-time">Day%!d </div></div>'--}}
+                                                            {{--+ '<div class="time-item time-hour"><div class="num-time">%H</div><div class="name-time">Hour%!H</div></div>'--}}
+                                                            {{--+ '<div class="time-item time-min"><div class="num-time">%M</div><div class="name-time">Min </div></div>'--}}
+                                                            {{--+ '<div class="time-item time-sec"><div class="num-time">%S</div><div class="name-time">Sec</div></div>'));--}}
+                                                    {{--});--}}
+
+                                                {{--});--}}
+                                            {{--</script>--}}
+                                            {{--<div class="defaultCountdown-95"></div>--}}
+                                        {{--</div>--}}
+                                    </div> <!-- countdown -->
                                     <?php
                                         $discountPercent=0;
                                         $promotionSalePrice=0;
-                                        if ($product->Promotion==\App\Models\Product::YES && isset($product->productPromotion) && $product->productPromotion->date_end>=date('Y-m-d'))
+
+                                        if (isset($product->productPromotion) && $product->productPromotion->date_end>=date('Y-m-d'))
                                         {
                                             $discountPercent=$product->productPromotion->promotion_by_percent;
                                             $promotionSalePrice=$product->productPromotion->promotion_price;
@@ -126,15 +127,16 @@
                                     @if($discountPercent>0)
                                     <div class="box-label">
                                         <span class="label-product label-sale">
-                                             -{{$discountPercent}} %
+                                             -{{$discountPercent}}
                                         </span>
                                     </div>
                                     @endif
+                                    {{--<a class="quickview iframe-link visible-lg btn-button" title="Quickview" data-fancybox-type="iframe"  href="index_177.htm"> <i class="fa fa-eye"></i><span>Quickview</span>--}}
+                                    {{--</a>--}}
                                 </div>
                                 <div class="right-block right-b">
                                     <div class="button-group cartinfo--static">
                                         {!! Form::open(['route'=>'cart-products.store','method'=>'POST','class'=>'form-horizontal','files'=>false]) !!}
-
                                             <input class="form-control" type="hidden" name="qty" value="1">
                                             <input type="hidden" name="product_id" value="{{$product->id}}">
                                         <button class="addToCart" type="submit" title="Add to Cart"><span>Add to Cart</span></button>
@@ -157,7 +159,6 @@
                                                 <?php
                                                 $maxReview=5;
                                                 $averageReview=0;
-
                                                 if (!empty($product->product_review_avg_rating)){
                                                     $averageReview=ceil($product->product_review_avg_rating);
                                                 }
@@ -171,12 +172,14 @@
                                                         <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
                                                     @endfor
                                                 </div>
-                                                <a class="rating-num"  href="{{url('/book/details/'.$product->id."/$product->name")}}" rel="nofollow" target="_blank" >({{$averageReview}})</a>
+                                                <a class="rating-num"  href="{{url('/book/details/'.'101'.'/single-product-name')}}" rel="nofollow" target="_blank" >({{$averageReview}})</a>
                                             </div>
                                             {{--<div class="order-num">Orders (33)</div>--}}
                                         </div>
                                         <h4>
-                                            <a href="{{url('/book/details/'.$product->id."/$product->name")}}">{{substr($product->name,0,25)}}</a>
+                                            <a href="{{url('/book/details/'.$product->id.'/single-product-name')}}">
+                                                {{substr($product->name,0,25)}}
+                                            </a>
                                         </h4>
                                     </div>
                                     <div class="price">
@@ -187,6 +190,14 @@
                                             <span class="price-new">{{$setting->currency}} {{$product->productStock->sale_price}}</span>
                                         @endif
                                     </div>
+                                    <div class="description">
+                                        <?php echo  $product->short_description;?>
+                                    </div>
+                                </div>
+                                <div class="list-block">
+                                    <button class="addToCart btn-button" type="button" title="Add to Cart" onclick="cart.add({{$product->id}}, '1');"><i class="fa fa-shopping-cart"></i></button>
+                                    <button class="wishlist btn-button" type="button" title="Add to Wish List" onclick="wishlist.add({{$product->id}});"><i class="fa fa-heart-o"></i></button>
+                                    <button class="compare btn-button" type="button" title="Add to Compare" onclick="compare.add({{$product->id}});"><i class="fa fa-retweet"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +206,12 @@
                     </div>
                     <div class="product-filter product-filter-bottom filters-panel">
                         <div class="row">
-                            <div class="col-sm-12 text-center">{!! $products->links() !!}</div>
+                            <div class="col-sm-6 text-left"></div>
+                            <div class="col-sm-6 text-right">
+                                <div class="d-flex justify-content-center">
+                                 {!! $products->links() !!}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,14 +221,12 @@
 @include('client.layouts.partials.right-side-menu')
 @endsection
 @section('script')
+<script>
+    document.forms['productSearch'].elements['category_id'].value='{{$request->category_id}}';
+</script>
 <script src="{{asset('/client/assets')}}/javascript/so_filter_shop_by/js/nouislider.js"></script>
 <script src="{{asset('/client/assets')}}/javascript/soconfig/js/owl.carousel.js"></script>
 <script>
-    $('#readMore').on('click',function () {
-        $('#fullBio').css({'display':'block'})
-        $(this).css({'display':'none'})
-    })
-
     function perPageLimit(perPageValue) {
         window.location.href="<?php echo request()->fullUrlWithQuery(['perPage'=>''])?>"+perPageValue;
         $("#input-limit select").val(perPageValue);
@@ -235,39 +249,49 @@
                 $('.products-category .product-layout').attr('class', 'product-layout product-list col-xs-12');
                 localStorage.setItem('listview', 'list');
             });
+
             // Product Grid
             $('#grid-view').click(function() {
                 var cols = $('.left_column , .right_column ').length;
+
+
                 $('.products-category .product-layout').attr('class', 'product-layout product-grid col-lg-3 col-md-3 col-sm-6 col-xs-12');
 
                 localStorage.setItem('listview', 'grid');
             });
+
             // Product Grid 2
             $('#grid-view-2').click(function() {
                 $('.products-category .product-layout').attr('class', 'product-layout product-grid product-grid-2 col-lg-6 col-md-6 col-sm-6 col-xs-12');
                 localStorage.setItem('listview', 'grid-2');
             });
+
             // Product Grid 3
             $('#grid-view-3').click(function() {
                 $('.products-category .product-layout').attr('class', 'product-layout product-grid product-grid-3 col-lg-4 col-md-4 col-sm-6 col-xs-12');
                 localStorage.setItem('listview', 'grid-3');
             });
+
             // Product Grid 4
             $('#grid-view-4').click(function() {
                 $('.products-category .product-layout').attr('class', 'product-layout product-grid product-grid-4 col-lg-3 col-md-4 col-sm-6 col-xs-12');
                 localStorage.setItem('listview', 'grid-4');
             });
+
             // Product Grid 5
             $('#grid-view-5').click(function() {
                 $('.products-category .product-layout').attr('class', 'product-layout product-grid product-grid-5 col-lg-15 col-md-4 col-sm-6 col-xs-12');
                 localStorage.setItem('listview', 'grid-5');
             });
+
             // Product Table
             $('#table-view').click(function() {
                 $('.products-category .product-layout').attr('class', 'product-layout product-table col-xs-12');
                 localStorage.setItem('listview', 'table');
             })
-            if(localStorage.getItem('listview')== null) localStorage.setItem('listview', 'grid-4');
+
+
+            if(localStorage.getItem('listview')== null) localStorage.setItem('listview', 'grid-3');
 
             if (localStorage.getItem('listview') == 'table') {
                 $('#table-view').trigger('click');
@@ -285,3 +309,4 @@
         }
         //--></script>
 @endsection
+

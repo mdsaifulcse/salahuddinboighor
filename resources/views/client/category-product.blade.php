@@ -18,7 +18,8 @@
             </div>
             <ul class="breadcrumb">
                 <li><a href="{{URL::to('/')}}"><i class="fa fa-home"></i></a></li>
-                <li><a href="{{URL::to('/categories')}}">{{__('frontend.Category Name Bn')}}</a></li>
+                <li><a href="javascript:void(0)">{{__('frontend.Book')}}</a></li>
+                <li><a href="{{URL::to('/book/categories')}}">{{__('frontend.Category Name Bn')}}</a></li>
                 <li><a href="{{URL::to('book/category/'.$categoryData->id.'?ref='.$categoryData->category_name)}}">{{$categoryData->category_name}}-{{$categoryData->category_name_bn}}</a></li>
             </ul>
         </div>

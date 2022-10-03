@@ -96,7 +96,7 @@
                             <h4 class="modtitle">{{__('frontend.Feature Product')}}</h4>
                             <div class="modcontent">
                                 <div class="page-top">
-                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('book/categories')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
+                                    <div class="item-sub-cat"><ul><li> <a href="{{URL::to('tags-products?tag=feature')}}" title="" target="_self">{{__('frontend.View All')}}</a></li></ul></div>
                                 </div>
                                 <div class="categoryslider-content hide-featured preset01-6 preset02-4 preset03-3 preset04-2 preset05-1">
                                     <div class="loading-placeholder"></div>

@@ -274,6 +274,8 @@ Route::group(['namespace'=>'Client'], function() {
 
     Route::get('/book-search', 'SearchProductController@searchProduct')->name('book.search');
 
+    Route::get('/tags-products', 'SearchProductController@searchTagsProduct')->name('tags.product');
+
 });
 
 
